@@ -73,6 +73,7 @@ public class DriverWrapper {
 
     protected static Class<? extends Driver> loadDriver(final Ruby runtime, final String name)
         throws ClassCastException {
+        throw new RuntimeException("loadDriver: " + name);
         @SuppressWarnings("unchecked")
         Class<? extends Driver> klass = runtime.getJavaSupport().loadJavaClassVerbose(name);
         if ( ! Driver.class.isAssignableFrom(klass) ) {
