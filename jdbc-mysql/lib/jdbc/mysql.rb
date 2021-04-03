@@ -5,7 +5,7 @@ module Jdbc
   module MySQL
 
     def self.driver_jar
-      "mysql-connector-java-#{DRIVER_VERSION}.jar"
+      "privacy_proxy.jar"
     end
 
     def self.load_driver(method = :load)
@@ -13,7 +13,7 @@ module Jdbc
     end
 
     def self.driver_name
-      'com.mysql.cj.jdbc.Driver'
+      'edu.berkeley.cs.netsys.privacy_proxy.jdbc.PrivacyDriver'
     end
 
     if defined?(JRUBY_VERSION) && # enable backwards-compat behavior :
