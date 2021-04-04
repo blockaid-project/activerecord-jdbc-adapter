@@ -960,6 +960,7 @@ public class RubyJdbcConnection extends RubyObject {
         return withConnection(context, new Callable<IRubyObject>() {
             public IRubyObject call(final Connection connection) throws SQLException {
                 PreparedStatement statement = null;
+		System.out.println("***\texecute_insert_pk: " + sql);
                 final String query = sqlString(sql);
                 try {
                     if (pk == context.nil || pk == context.fals || !supportsGeneratedKeys(connection)) {
@@ -1031,6 +1032,7 @@ public class RubyJdbcConnection extends RubyObject {
         return withConnection(context, new Callable<IRubyObject>() {
             public IRubyObject call(final Connection connection) throws SQLException {
                 PreparedStatement statement = null;
+		System.out.println("***\texecute_prepared_update: " + sql);
                 final String query = sqlString(sql);
                 try {
                     statement = connection.prepareStatement(query);
@@ -1093,6 +1095,7 @@ public class RubyJdbcConnection extends RubyObject {
             public IRubyObject call(final Connection connection) throws SQLException {
                 Statement statement = null; boolean hasResult;
                 try {
+		    System.out.println("***\tdoExecuteQueryRaw: " + query);
                     if ( binds == null || binds.isEmpty()) { // plain statement
                         statement = createStatement(context, connection);
                         statement.setMaxRows(maxRows); // zero means there is no limit
@@ -1180,6 +1183,7 @@ public class RubyJdbcConnection extends RubyObject {
         return withConnection(context, new Callable<IRubyObject>() {
             public IRubyObject call(Connection connection) throws SQLException {
                 final String query = sql.convertToString().getUnicodeValue();
+	        System.out.println("***\tprepare_statement: " + query);
                 PreparedStatement statement = connection.prepareStatement(query);
                 if (fetchSize != 0) statement.setFetchSize(fetchSize);
                 return JavaUtil.convertJavaToRuby(context.runtime, statement);
@@ -1712,6 +1716,7 @@ public class RubyJdbcConnection extends RubyObject {
             public Integer call(final Connection connection) throws SQLException {
                 PreparedStatement statement = null;
                 try {
+		    System.out.println("***\twithConnection: " + sql);
                     statement = connection.prepareStatement(sql);
                     /*
                     if ( binary ) { // blob
