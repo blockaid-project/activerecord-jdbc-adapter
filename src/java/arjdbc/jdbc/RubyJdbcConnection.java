@@ -1210,6 +1210,7 @@ public class RubyJdbcConnection extends RubyObject {
             public IRubyObject call(final Connection connection) throws SQLException {
                 final boolean cached = !(cachedStatement == null || cachedStatement.isNil());
                 final String query = sql.convertToString().getUnicodeValue();
+		System.out.println("***\texecute_prepared_query: " + query);
                 PreparedStatement statement = null;
 
                 try {
