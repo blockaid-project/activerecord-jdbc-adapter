@@ -1,55 +1,39 @@
 # -*- encoding: utf-8 -*-
+# stub: activerecord-jdbc-adapter 52.7 java lib
+# stub: Rakefile
 
-Gem::Specification.new do |gem|
-  gem.name = 'activerecord-jdbc-adapter'
-  path = File.expand_path('lib/arjdbc/version.rb', File.dirname(__FILE__))
-  gem.version = File.read(path).match( /.*VERSION\s*=\s*['"](.*)['"]/m )[1]
-  gem.platform = 'java' # due jar-dependencies to resolve requirements for ext
-  gem.authors = ['Nick Sieger, Ola Bini, Karol Bucek and JRuby contributors']
-  gem.email = ['nick@nicksieger.com', 'ola.bini@gmail.com', 'self@kares.org']
-  gem.homepage = 'https://github.com/jruby/activerecord-jdbc-adapter'
-  gem.license = 'BSD-2-Clause'
-  gem.summary = 'JDBC adapter for ActiveRecord, for use within JRuby on Rails.'
-  gem.description = "" <<
-    "AR-JDBC is a database adapter for Rails' ActiveRecord component designed " <<
-    "to be used with JRuby built upon Java's JDBC API for database access. " <<
-    "Provides (ActiveRecord) built-in adapters: MySQL, PostgreSQL and SQLite3 " <<
-    "as well as adapters for popular databases such as Oracle, SQLServer, " <<
-    "DB2, FireBird and even Java (embed) databases: Derby, HSQLDB and H2. " <<
-    "It allows to connect to virtually any JDBC-compliant database with your " <<
-    "JRuby on Rails application."
+Gem::Specification.new do |s|
+  s.name = "activerecord-jdbc-adapter".freeze
+  s.version = "52.7"
+  s.platform = "java".freeze
 
-  gem.require_paths = ["lib"]
+  s.required_rubygems_version = Gem::Requirement.new(">= 0".freeze) if s.respond_to? :required_rubygems_version=
+  s.require_paths = ["lib".freeze]
+  s.authors = ["Nick Sieger, Ola Bini, Karol Bucek and JRuby contributors".freeze]
+  s.date = "2021-04-04"
+  s.description = "AR-JDBC is a database adapter for Rails' ActiveRecord component designed to be used with JRuby built upon Java's JDBC API for database access. Provides (ActiveRecord) built-in adapters: MySQL, PostgreSQL and SQLite3 as well as adapters for popular databases such as Oracle, SQLServer, DB2, FireBird and even Java (embed) databases: Derby, HSQLDB and H2. It allows to connect to virtually any JDBC-compliant database with your JRuby on Rails application.".freeze
+  s.email = ["nick@nicksieger.com".freeze, "ola.bini@gmail.com".freeze, "self@kares.org".freeze]
+  s.extensions = ["Rakefile".freeze]
+  s.files = [".gitignore".freeze, ".travis.yml".freeze, ".yardopts".freeze, "CONTRIBUTING.md".freeze, "Gemfile".freeze, "History.md".freeze, "LICENSE.txt".freeze, "README.md".freeze, "RUNNING_TESTS.md".freeze, "Rakefile".freeze, "Rakefile.jdbc".freeze, "activerecord-jdbc-adapter.gemspec".freeze, "lib/active_record/connection_adapters/as400_adapter.rb".freeze, "lib/active_record/connection_adapters/db2_adapter.rb".freeze, "lib/active_record/connection_adapters/derby_adapter.rb".freeze, "lib/active_record/connection_adapters/firebird_adapter.rb".freeze, "lib/active_record/connection_adapters/h2_adapter.rb".freeze, "lib/active_record/connection_adapters/hsqldb_adapter.rb".freeze, "lib/active_record/connection_adapters/informix_adapter.rb".freeze, "lib/active_record/connection_adapters/jdbc_adapter.rb".freeze, "lib/active_record/connection_adapters/jndi_adapter.rb".freeze, "lib/active_record/connection_adapters/mariadb_adapter.rb".freeze, "lib/active_record/connection_adapters/mysql2_adapter.rb".freeze, "lib/active_record/connection_adapters/mysql_adapter.rb".freeze, "lib/active_record/connection_adapters/postgresql_adapter.rb".freeze, "lib/active_record/connection_adapters/sqlite3_adapter.rb".freeze, "lib/activerecord-jdbc-adapter.rb".freeze, "lib/arel/visitors/compat.rb".freeze, "lib/arel/visitors/db2.rb".freeze, "lib/arel/visitors/derby.rb".freeze, "lib/arel/visitors/firebird.rb".freeze, "lib/arel/visitors/h2.rb".freeze, "lib/arel/visitors/hsqldb.rb".freeze, "lib/arel/visitors/postgresql_jdbc.rb".freeze, "lib/arel/visitors/sql_server.rb".freeze, "lib/arel/visitors/sql_server/ng42.rb".freeze, "lib/arjdbc.rb".freeze, "lib/arjdbc/abstract/connection_management.rb".freeze, "lib/arjdbc/abstract/core.rb".freeze, "lib/arjdbc/abstract/database_statements.rb".freeze, "lib/arjdbc/abstract/statement_cache.rb".freeze, "lib/arjdbc/abstract/transaction_support.rb".freeze, "lib/arjdbc/db2.rb".freeze, "lib/arjdbc/db2/adapter.rb".freeze, "lib/arjdbc/db2/as400.rb".freeze, "lib/arjdbc/db2/column.rb".freeze, "lib/arjdbc/db2/connection_methods.rb".freeze, "lib/arjdbc/derby.rb".freeze, "lib/arjdbc/derby/active_record_patch.rb".freeze, "lib/arjdbc/derby/adapter.rb".freeze, "lib/arjdbc/derby/connection_methods.rb".freeze, "lib/arjdbc/derby/schema_creation.rb".freeze, "lib/arjdbc/discover.rb".freeze, "lib/arjdbc/firebird.rb".freeze, "lib/arjdbc/firebird/adapter.rb".freeze, "lib/arjdbc/firebird/connection_methods.rb".freeze, "lib/arjdbc/h2.rb".freeze, "lib/arjdbc/h2/adapter.rb".freeze, "lib/arjdbc/h2/connection_methods.rb".freeze, "lib/arjdbc/hsqldb.rb".freeze, "lib/arjdbc/hsqldb/adapter.rb".freeze, "lib/arjdbc/hsqldb/connection_methods.rb".freeze, "lib/arjdbc/hsqldb/explain_support.rb".freeze, "lib/arjdbc/hsqldb/schema_creation.rb".freeze, "lib/arjdbc/informix.rb".freeze, "lib/arjdbc/informix/adapter.rb".freeze, "lib/arjdbc/informix/connection_methods.rb".freeze, "lib/arjdbc/jdbc.rb".freeze, "lib/arjdbc/jdbc/adapter.rb".freeze, "lib/arjdbc/jdbc/adapter_java.jar".freeze, "lib/arjdbc/jdbc/adapter_require.rb".freeze, "lib/arjdbc/jdbc/base_ext.rb".freeze, "lib/arjdbc/jdbc/callbacks.rb".freeze, "lib/arjdbc/jdbc/column.rb".freeze, "lib/arjdbc/jdbc/connection.rb".freeze, "lib/arjdbc/jdbc/connection_methods.rb".freeze, "lib/arjdbc/jdbc/error.rb".freeze, "lib/arjdbc/jdbc/extension.rb".freeze, "lib/arjdbc/jdbc/java.rb".freeze, "lib/arjdbc/jdbc/railtie.rb".freeze, "lib/arjdbc/jdbc/rake_tasks.rb".freeze, "lib/arjdbc/jdbc/serialized_attributes_helper.rb".freeze, "lib/arjdbc/jdbc/type_cast.rb".freeze, "lib/arjdbc/jdbc/type_converter.rb".freeze, "lib/arjdbc/mysql.rb".freeze, "lib/arjdbc/mysql/adapter.rb".freeze, "lib/arjdbc/mysql/connection_methods.rb".freeze, "lib/arjdbc/oracle/adapter.rb".freeze, "lib/arjdbc/postgresql.rb".freeze, "lib/arjdbc/postgresql/adapter.rb".freeze, "lib/arjdbc/postgresql/base/array_decoder.rb".freeze, "lib/arjdbc/postgresql/base/array_encoder.rb".freeze, "lib/arjdbc/postgresql/base/array_parser.rb".freeze, "lib/arjdbc/postgresql/base/pgconn.rb".freeze, "lib/arjdbc/postgresql/column.rb".freeze, "lib/arjdbc/postgresql/connection_methods.rb".freeze, "lib/arjdbc/postgresql/name.rb".freeze, "lib/arjdbc/postgresql/oid_types.rb".freeze, "lib/arjdbc/railtie.rb".freeze, "lib/arjdbc/sqlite3.rb".freeze, "lib/arjdbc/sqlite3/adapter.rb".freeze, "lib/arjdbc/sqlite3/connection_methods.rb".freeze, "lib/arjdbc/sybase.rb".freeze, "lib/arjdbc/sybase/adapter.rb".freeze, "lib/arjdbc/tasks.rb".freeze, "lib/arjdbc/tasks/database_tasks.rb".freeze, "lib/arjdbc/tasks/databases.rake".freeze, "lib/arjdbc/tasks/db2_database_tasks.rb".freeze, "lib/arjdbc/tasks/derby_database_tasks.rb".freeze, "lib/arjdbc/tasks/h2_database_tasks.rb".freeze, "lib/arjdbc/tasks/hsqldb_database_tasks.rb".freeze, "lib/arjdbc/tasks/jdbc_database_tasks.rb".freeze, "lib/arjdbc/tasks/mssql_database_tasks.rb".freeze, "lib/arjdbc/tasks/sqlite_database_tasks_patch.rb".freeze, "lib/arjdbc/util/quoted_cache.rb".freeze, "lib/arjdbc/util/serialized_attributes.rb".freeze, "lib/arjdbc/util/table_copier.rb".freeze, "lib/arjdbc/version.rb".freeze, "lib/generators/jdbc/USAGE".freeze, "lib/generators/jdbc/jdbc_generator.rb".freeze, "lib/jdbc_adapter.rb".freeze, "lib/jdbc_adapter/rake_tasks.rb".freeze, "lib/jdbc_adapter/version.rb".freeze, "pom.xml".freeze, "rails_generators/jdbc_generator.rb".freeze, "rails_generators/templates/config/initializers/jdbc.rb".freeze, "rails_generators/templates/lib/tasks/jdbc.rake".freeze, "rakelib/01-tomcat.rake".freeze, "rakelib/02-test.rake".freeze, "rakelib/bundler_ext.rb".freeze, "rakelib/db.rake".freeze, "rakelib/rails.rake".freeze, "src/java/arjdbc/ArJdbcModule.java".freeze, "src/java/arjdbc/db2/DB2Module.java".freeze, "src/java/arjdbc/db2/DB2RubyJdbcConnection.java".freeze, "src/java/arjdbc/derby/DerbyModule.java".freeze, "src/java/arjdbc/derby/DerbyRubyJdbcConnection.java".freeze, "src/java/arjdbc/firebird/FirebirdRubyJdbcConnection.java".freeze, "src/java/arjdbc/h2/H2Module.java".freeze, "src/java/arjdbc/h2/H2RubyJdbcConnection.java".freeze, "src/java/arjdbc/hsqldb/HSQLDBModule.java".freeze, "src/java/arjdbc/informix/InformixRubyJdbcConnection.java".freeze, "src/java/arjdbc/jdbc/AdapterJavaService.java".freeze, "src/java/arjdbc/jdbc/Callable.java".freeze, "src/java/arjdbc/jdbc/ConnectionFactory.java".freeze, "src/java/arjdbc/jdbc/DataSourceConnectionFactory.java".freeze, "src/java/arjdbc/jdbc/DriverConnectionFactory.java".freeze, "src/java/arjdbc/jdbc/DriverWrapper.java".freeze, "src/java/arjdbc/jdbc/JdbcResult.java".freeze, "src/java/arjdbc/jdbc/RubyConnectionFactory.java".freeze, "src/java/arjdbc/jdbc/RubyJdbcConnection.java".freeze, "src/java/arjdbc/mssql/MSSQLModule.java".freeze, "src/java/arjdbc/mssql/MSSQLRubyJdbcConnection.java".freeze, "src/java/arjdbc/mysql/MySQLModule.java".freeze, "src/java/arjdbc/mysql/MySQLRubyJdbcConnection.java".freeze, "src/java/arjdbc/oracle/OracleModule.java".freeze, "src/java/arjdbc/oracle/OracleRubyJdbcConnection.java".freeze, "src/java/arjdbc/postgresql/ByteaUtils.java".freeze, "src/java/arjdbc/postgresql/PgDateTimeUtils.java".freeze, "src/java/arjdbc/postgresql/PostgreSQLModule.java".freeze, "src/java/arjdbc/postgresql/PostgreSQLResult.java".freeze, "src/java/arjdbc/postgresql/PostgreSQLRubyJdbcConnection.java".freeze, "src/java/arjdbc/sqlite3/SQLite3Module.java".freeze, "src/java/arjdbc/sqlite3/SQLite3RubyJdbcConnection.java".freeze, "src/java/arjdbc/util/CallResultSet.java".freeze, "src/java/arjdbc/util/DateTimeUtils.java".freeze, "src/java/arjdbc/util/ObjectSupport.java".freeze, "src/java/arjdbc/util/PG.java".freeze, "src/java/arjdbc/util/QuotingUtils.java".freeze, "src/java/arjdbc/util/StringCache.java".freeze, "src/java/arjdbc/util/StringHelper.java".freeze]
+  s.homepage = "https://github.com/jruby/activerecord-jdbc-adapter".freeze
+  s.licenses = ["BSD-2-Clause".freeze]
+  s.rdoc_options = ["--main".freeze, "README.md".freeze, "-SHN".freeze, "-f".freeze, "darkfish".freeze]
+  s.rubygems_version = "3.1.6".freeze
+  s.summary = "JDBC adapter for ActiveRecord, for use within JRuby on Rails.".freeze
 
-  gem.files = `git ls-files`.split("\n").
-    reject { |f| f =~ /^(activerecord-jdbc[^-]|jdbc-)/ }. # gem directories
-    reject { |f| f =~ /^(bench|test)/ }. # not sure if including tests is useful
-    reject { |f| f =~ /^(gemfiles)/ } # no tests - no Gemfile_s appraised ...
-  gem.files += ['lib/arjdbc/jdbc/adapter_java.jar'] #if ENV['RELEASE'].eql?('true')
+  s.installed_by_version = "3.1.6" if s.respond_to? :installed_by_version
 
-  if ENV['INCLUDE_JAR_IN_GEM'] != 'true' # @see Rakefile
-    gem.extensions << 'Rakefile' # to support auto-building .jar with :git paths
-
-    #gem.add_runtime_dependency 'jar-dependencies', '~> 0.1' # development not enough!
-    #gem.add_development_dependency 'ruby-maven', '~> 3.1'
-    #
-    #gem.requirements << "jar mysql:mysql-connector-java, 5.1.44, :scope => :compile"
-    #gem.requirements << "jar org.postgresql:postgresql, 42.1.4.jre6, :scope => :compile"
-
-    # compilation .jar dependencies for extension (at least until `mvn') :
-    gem.add_development_dependency 'jdbc-mysql', '~> 5.1.44'
-    gem.add_development_dependency 'jdbc-postgres', '~> 42.1'
+  if s.respond_to? :specification_version then
+    s.specification_version = 4
   end
 
-  gem.executables = gem.files.grep(%r{^bin/}).map { |f| File.basename(f) }
-  gem.test_files = gem.files.grep(%r{^test/})
-
-  gem.add_dependency 'activerecord', '~> 5.2.0'
-
-  #gem.add_development_dependency 'test-unit', '2.5.4'
-  #gem.add_development_dependency 'test-unit-context', '>= 0.3.0'
-  #gem.add_development_dependency 'mocha', '~> 0.13.1'
-
-  gem.rdoc_options = ["--main", "README.md", "-SHN", "-f", "darkfish"]
+  if s.respond_to? :add_runtime_dependency then
+    s.add_development_dependency(%q<jdbc-mysql>.freeze, ["~> 5.1.44"])
+    s.add_development_dependency(%q<jdbc-postgres>.freeze, ["~> 42.1"])
+    s.add_runtime_dependency(%q<activerecord>.freeze, ["~> 5.2.0"])
+  else
+    s.add_dependency(%q<jdbc-mysql>.freeze, ["~> 5.1.44"])
+    s.add_dependency(%q<jdbc-postgres>.freeze, ["~> 42.1"])
+    s.add_dependency(%q<activerecord>.freeze, ["~> 5.2.0"])
+  end
 end
-

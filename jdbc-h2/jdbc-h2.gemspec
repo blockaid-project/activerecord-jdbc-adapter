@@ -1,21 +1,22 @@
 # -*- encoding: utf-8 -*-
-$LOAD_PATH << File.expand_path('../lib', __FILE__)
-require 'jdbc/h2/version'
+# stub: jdbc-h2 1.4.178 ruby lib
 
-Gem::Specification.new do |gem|
-  gem.name = %q{jdbc-h2}
-  gem.version = Jdbc::H2::VERSION
+Gem::Specification.new do |s|
+  s.name = "jdbc-h2".freeze
+  s.version = "1.4.178"
 
-  gem.authors = ['Nick Sieger, Ola Bini, Karol Bucek and JRuby contributors']
-  gem.email = ['nick@nicksieger.com', 'ola.bini@gmail.com', 'self@kares.org']
-  gem.homepage = 'https://github.com/jruby/activerecord-jdbc-adapter/tree/master/jdbc-h2'
-  gem.licenses = ['H2']
+  s.required_rubygems_version = Gem::Requirement.new(">= 0".freeze) if s.respond_to? :required_rubygems_version=
+  s.require_paths = ["lib".freeze]
+  s.authors = ["Nick Sieger, Ola Bini, Karol Bucek and JRuby contributors".freeze]
+  s.date = "2021-04-04"
+  s.description = "Install this gem `require 'jdbc/h2'` and invoke `Jdbc::H2.load_driver` within JRuby to load the driver.".freeze
+  s.email = ["nick@nicksieger.com".freeze, "ola.bini@gmail.com".freeze, "self@kares.org".freeze]
+  s.files = ["LICENSE.txt".freeze, "README.md".freeze, "lib/h2-1.4.178.jar".freeze, "lib/jdbc".freeze, "lib/jdbc/h2".freeze, "lib/jdbc/h2.rb".freeze, "lib/jdbc/h2/version.rb".freeze]
+  s.homepage = "https://github.com/jruby/activerecord-jdbc-adapter/tree/master/jdbc-h2".freeze
+  s.licenses = ["H2".freeze]
+  s.rdoc_options = ["--main".freeze, "README.md".freeze]
+  s.rubygems_version = "3.1.6".freeze
+  s.summary = "H2 (JDBC driver) for JRuby (usable with ActiveRecord-JDBC).".freeze
 
-  gem.files = [ 'README.md', 'LICENSE.txt', *Dir['lib/**/*'].to_a ]
-
-  gem.rdoc_options = ["--main", "README.md"]
-  gem.require_paths = ["lib"]
-
-  gem.summary = %q{H2 (JDBC driver) for JRuby (usable with ActiveRecord-JDBC).}
-  gem.description = %q{Install this gem `require 'jdbc/h2'` and invoke `Jdbc::H2.load_driver` within JRuby to load the driver.}
+  s.installed_by_version = "3.1.6" if s.respond_to? :installed_by_version
 end
