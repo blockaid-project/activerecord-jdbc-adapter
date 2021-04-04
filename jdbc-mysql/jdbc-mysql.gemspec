@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.date = "2021-04-04"
   s.description = "Install this gem `require 'jdbc/mysql'` and invoke `Jdbc::MySQL.load_driver` within JRuby to load the driver.".freeze
   s.email = ["nick@nicksieger.com".freeze, "ola.bini@gmail.com".freeze, "self@kares.org".freeze]
-  s.files = ["LICENSE.txt".freeze, "README.md".freeze, "lib/jdbc".freeze, "lib/jdbc/mysql".freeze, "lib/jdbc/mysql.rb".freeze, "lib/jdbc/mysql/version.rb".freeze, "lib/mysql-connector-java-5.1.47-bin.jar".freeze, "lib/privacy_proxy.jar".freeze]
+  s.files = ["LICENSE.txt".freeze, "README.md".freeze, "lib/jdbc".freeze, "lib/jdbc/mysql".freeze, "lib/jdbc/mysql.rb".freeze, "lib/jdbc/mysql/version.rb".freeze, "lib/privacy_proxy.jar".freeze]
   s.homepage = "http://github.com/jruby/activerecord-jdbc-adapter/tree/master/jdbc-mysql".freeze
   s.licenses = ["GPL-2".freeze]
   s.rdoc_options = ["--main".freeze, "README.md".freeze]
