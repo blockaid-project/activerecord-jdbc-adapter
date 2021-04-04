@@ -76,6 +76,7 @@ public class DriverWrapper {
 	System.out.println("***\tloadDriver: " + name);
         @SuppressWarnings("unchecked")
         Class<? extends Driver> klass = runtime.getJavaSupport().loadJavaClassVerbose(name);
+	System.out.println("***\tloadJavaClassVerbose done");
         if ( ! Driver.class.isAssignableFrom(klass) ) {
             throw new ClassCastException(klass + " is not assignable from " + Driver.class);
         }
