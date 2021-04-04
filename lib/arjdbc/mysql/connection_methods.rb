@@ -12,8 +12,10 @@ ArJdbc::ConnectionMethods.module_eval do
     return jndi_connection(config) if jndi_config?(config)
 
     driver = config[:driver]
-    mysql_driver = driver.nil? || driver.to_s.start_with?('com.mysql.')
-    mariadb_driver = ! mysql_driver && driver.to_s.start_with?('org.mariadb.')
+    mysql_driver = true
+    mariadb_driver = false
+    # mysql_driver = driver.nil? || driver.to_s.start_with?('com.mysql.')
+    # mariadb_driver = ! mysql_driver && driver.to_s.start_with?('org.mariadb.')
 
     begin
       require 'jdbc/mysql'
