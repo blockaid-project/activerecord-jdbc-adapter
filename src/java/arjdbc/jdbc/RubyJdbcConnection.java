@@ -1184,8 +1184,9 @@ public class RubyJdbcConnection extends RubyObject {
         return withConnection(context, new Callable<IRubyObject>() {
             public IRubyObject call(Connection connection) throws SQLException {
                 final String query = sql.convertToString().getUnicodeValue();
-	        System.out.println("***\tprepare_statement: " + query);
+                System.out.println("***\tprepare_statement: " + query);
                 PreparedStatement statement = connection.prepareStatement(query);
+                System.out.println("***\tprepare_statement DONE: " + query);
                 if (fetchSize != 0) statement.setFetchSize(fetchSize);
                 return JavaUtil.convertJavaToRuby(context.runtime, statement);
             }
@@ -1215,7 +1216,7 @@ public class RubyJdbcConnection extends RubyObject {
             public IRubyObject call(final Connection connection) throws SQLException {
                 final boolean cached = !(cachedStatement == null || cachedStatement.isNil());
                 final String query = sql.convertToString().getUnicodeValue();
-		System.out.println("***\texecute_prepared_query: " + query);
+                System.out.println("***\texecute_prepared_query: " + query);
                 PreparedStatement statement = null;
 
                 try {
@@ -1225,10 +1226,13 @@ public class RubyJdbcConnection extends RubyObject {
                         statement = connection.prepareStatement(query);
                         if (fetchSize != 0) statement.setFetchSize(fetchSize);
                     }
+                    System.out.println("***\texecute_prepared_query 1: " + query);
 
                     setStatementParameters(context, connection, statement, (RubyArray) binds);
+                    System.out.println("***\texecute_prepared_query 2: " + query);
 
                     if (statement.execute()) {
+                        System.out.println("***\texecute_prepared_query 3: " + query);
                         ResultSet resultSet = statement.getResultSet();
                         IRubyObject results = mapQueryResult(context, connection, resultSet);
                         resultSet.close();
