@@ -1226,13 +1226,13 @@ public class RubyJdbcConnection extends RubyObject {
                         statement = connection.prepareStatement(query);
                         if (fetchSize != 0) statement.setFetchSize(fetchSize);
                     }
-                    System.out.println("***\texecute_prepared_query 1: " + query);
+                    System.out.println("***\texecute_prepared_query 1: " + statement.getClass().getName());
 
                     setStatementParameters(context, connection, statement, (RubyArray) binds);
-                    System.out.println("***\texecute_prepared_query 2: " + query);
+                    System.out.println("***\texecute_prepared_query 2");
 
                     if (statement.execute()) {
-                        System.out.println("***\texecute_prepared_query 3: " + query);
+                        System.out.println("***\texecute_prepared_query 3");
                         ResultSet resultSet = statement.getResultSet();
                         IRubyObject results = mapQueryResult(context, connection, resultSet);
                         resultSet.close();
