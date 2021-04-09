@@ -1152,6 +1152,7 @@ public class RubyJdbcConnection extends RubyObject {
             public IRubyObject call(final Connection connection) throws SQLException {
                 Statement statement = null;
                 final String query = sqlString(sql);
+                System.out.println("!!! execute_query: " + query);
                 try {
                     statement = createStatement(context, connection);
 
