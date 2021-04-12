@@ -879,6 +879,7 @@ public class RubyJdbcConnection extends RubyObject {
      * @throws SQLException
      */
     protected boolean doExecute(final Statement statement, final String query) throws SQLException {
+        System.out.println("*** doExecute: " + .getClass().getName() + ", " + query);
         return statement.execute(query);
     }
 
@@ -960,7 +961,6 @@ public class RubyJdbcConnection extends RubyObject {
         return withConnection(context, new Callable<IRubyObject>() {
             public IRubyObject call(final Connection connection) throws SQLException {
                 PreparedStatement statement = null;
-		System.out.println("***\texecute_insert_pk: " + sql);
                 final String query = sqlString(sql);
                 try {
                     if (pk == context.nil || pk == context.fals || !supportsGeneratedKeys(connection)) {
@@ -1032,7 +1032,6 @@ public class RubyJdbcConnection extends RubyObject {
         return withConnection(context, new Callable<IRubyObject>() {
             public IRubyObject call(final Connection connection) throws SQLException {
                 PreparedStatement statement = null;
-		System.out.println("***\texecute_prepared_update: " + sql);
                 final String query = sqlString(sql);
                 try {
                     statement = connection.prepareStatement(query);
@@ -1095,7 +1094,6 @@ public class RubyJdbcConnection extends RubyObject {
             public IRubyObject call(final Connection connection) throws SQLException {
                 Statement statement = null; boolean hasResult;
                 try {
-		    System.out.println("***\tdoExecuteQueryRaw: " + query);
                     if ( binds == null || binds.isEmpty()) { // plain statement
                         statement = createStatement(context, connection);
                         statement.setMaxRows(maxRows); // zero means there is no limit
