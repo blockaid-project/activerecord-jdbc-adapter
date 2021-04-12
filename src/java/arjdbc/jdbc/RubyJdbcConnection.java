@@ -879,7 +879,7 @@ public class RubyJdbcConnection extends RubyObject {
      * @throws SQLException
      */
     protected boolean doExecute(final Statement statement, final String query) throws SQLException {
-        System.out.println("*** doExecute: " + .getClass().getName() + ", " + query);
+        System.out.println("*** doExecute: " + statement.getClass().getName() + ", " + query);
         return statement.execute(query);
     }
 
