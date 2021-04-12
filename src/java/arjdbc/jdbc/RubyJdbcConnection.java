@@ -809,6 +809,7 @@ public class RubyJdbcConnection extends RubyObject {
     @JRubyMethod(name = "execute", required = 1)
     public IRubyObject execute(final ThreadContext context, final IRubyObject sql) {
         final String query = sqlString(sql);
+        System.out.println("*** execute: " + query);
         return withConnection(context, new Callable<IRubyObject>() {
             public IRubyObject call(final Connection connection) throws SQLException {
                 Statement statement = null;
