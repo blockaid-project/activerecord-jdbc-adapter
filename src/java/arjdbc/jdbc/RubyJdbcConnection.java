@@ -809,7 +809,7 @@ public class RubyJdbcConnection extends RubyObject {
     @JRubyMethod(name = "execute", required = 1)
     public IRubyObject execute(final ThreadContext context, final IRubyObject sql) {
         final String query = sqlString(sql);
-        System.out.println("*** execute: " + query);
+        System.out.println("***\tRubyJdbcConnection.execute: " + query);
         return withConnection(context, new Callable<IRubyObject>() {
             public IRubyObject call(final Connection connection) throws SQLException {
                 Statement statement = null;
@@ -880,7 +880,7 @@ public class RubyJdbcConnection extends RubyObject {
      * @throws SQLException
      */
     protected boolean doExecute(final Statement statement, final String query) throws SQLException {
-        System.out.println("*** doExecute: " + statement.getClass().getName() + ", " + query);
+        System.out.println("***\tRubyJdbcConnection.doExecute: " + statement.getClass().getName() + ", " + query);
         return statement.execute(query);
     }
 
@@ -1151,7 +1151,7 @@ public class RubyJdbcConnection extends RubyObject {
             public IRubyObject call(final Connection connection) throws SQLException {
                 Statement statement = null;
                 final String query = sqlString(sql);
-                System.out.println("!!! execute_query: " + query);
+                System.out.println("***\tRubyJdbcConnection.execute_query: " + query);
                 try {
                     statement = createStatement(context, connection);
 
@@ -1183,9 +1183,9 @@ public class RubyJdbcConnection extends RubyObject {
         return withConnection(context, new Callable<IRubyObject>() {
             public IRubyObject call(Connection connection) throws SQLException {
                 final String query = sql.convertToString().getUnicodeValue();
-                System.out.println("***\tprepare_statement: " + query);
+                System.out.println("***\tRubyJdbcConnection.prepare_statement: " + query);
                 PreparedStatement statement = connection.prepareStatement(query);
-                System.out.println("***\tprepare_statement DONE: " + query);
+                System.out.println("***\tRubyJdbcConnection.prepare_statement DONE: " + query);
                 if (fetchSize != 0) statement.setFetchSize(fetchSize);
                 return JavaUtil.convertJavaToRuby(context.runtime, statement);
             }
@@ -1215,7 +1215,7 @@ public class RubyJdbcConnection extends RubyObject {
             public IRubyObject call(final Connection connection) throws SQLException {
                 final boolean cached = !(cachedStatement == null || cachedStatement.isNil());
                 final String query = sql.convertToString().getUnicodeValue();
-                System.out.println("***\texecute_prepared_query: " + query);
+                System.out.println("***\tRubyJdbcConnection.execute_prepared_query: " + query);
                 PreparedStatement statement = null;
 
                 try {
