@@ -815,9 +815,11 @@ public class RubyJdbcConnection extends RubyObject {
                 Statement statement = null;
                 try {
                     statement = createStatement(context, connection);
+                    System.out.println("***\t\tstatement: " + statement.getClass().getName());
 
                     // For DBs that do support multiple statements, lets return the last result set
                     // to be consistent with AR
+                    System.out.println("***\t\tbefore doExecute");
                     boolean hasResultSet = doExecute(statement, query);
                     int updateCount = statement.getUpdateCount();
 
