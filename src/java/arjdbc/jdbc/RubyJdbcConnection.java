@@ -815,11 +815,9 @@ public class RubyJdbcConnection extends RubyObject {
                 Statement statement = null;
                 try {
                     statement = createStatement(context, connection);
-                    System.out.println("***\t\tstatement: " + statement.getClass().getName());
 
                     // For DBs that do support multiple statements, lets return the last result set
                     // to be consistent with AR
-                    System.out.println("***\t\tbefore doExecute");
                     boolean hasResultSet = doExecute(statement, query);
                     int updateCount = statement.getUpdateCount();
 
@@ -882,7 +880,6 @@ public class RubyJdbcConnection extends RubyObject {
      * @throws SQLException
      */
     protected boolean doExecute(final Statement statement, final String query) throws SQLException {
-        System.out.println("***\tRubyJdbcConnection.doExecute: " + statement.getClass().getName() + ", " + query);
         return statement.execute(query);
     }
 
@@ -1185,9 +1182,7 @@ public class RubyJdbcConnection extends RubyObject {
         return withConnection(context, new Callable<IRubyObject>() {
             public IRubyObject call(Connection connection) throws SQLException {
                 final String query = sql.convertToString().getUnicodeValue();
-                System.out.println("***\tRubyJdbcConnection.prepare_statement: " + query);
                 PreparedStatement statement = connection.prepareStatement(query);
-                System.out.println("***\tRubyJdbcConnection.prepare_statement DONE: " + query);
                 if (fetchSize != 0) statement.setFetchSize(fetchSize);
                 return JavaUtil.convertJavaToRuby(context.runtime, statement);
             }
@@ -1227,13 +1222,10 @@ public class RubyJdbcConnection extends RubyObject {
                         statement = connection.prepareStatement(query);
                         if (fetchSize != 0) statement.setFetchSize(fetchSize);
                     }
-                    System.out.println("***\texecute_prepared_query 1: " + statement.getClass().getName());
 
                     setStatementParameters(context, connection, statement, (RubyArray) binds);
-                    System.out.println("***\texecute_prepared_query 2");
 
                     if (statement.execute()) {
-                        System.out.println("***\texecute_prepared_query 3");
                         ResultSet resultSet = statement.getResultSet();
                         IRubyObject results = mapQueryResult(context, connection, resultSet);
                         resultSet.close();
@@ -1722,7 +1714,6 @@ public class RubyJdbcConnection extends RubyObject {
             public Integer call(final Connection connection) throws SQLException {
                 PreparedStatement statement = null;
                 try {
-		    System.out.println("***\twithConnection: " + sql);
                     statement = connection.prepareStatement(sql);
                     /*
                     if ( binary ) { // blob
