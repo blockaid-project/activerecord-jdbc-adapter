@@ -809,7 +809,7 @@ public class RubyJdbcConnection extends RubyObject {
     @JRubyMethod(name = "execute", required = 1)
     public IRubyObject execute(final ThreadContext context, final IRubyObject sql) {
         final String query = sqlString(sql);
-        System.out.println("***\tRubyJdbcConnection.execute: " + query);
+        // System.out.println("***\tRubyJdbcConnection.execute: " + query);
         return withConnection(context, new Callable<IRubyObject>() {
             public IRubyObject call(final Connection connection) throws SQLException {
                 Statement statement = null;
@@ -1150,7 +1150,7 @@ public class RubyJdbcConnection extends RubyObject {
             public IRubyObject call(final Connection connection) throws SQLException {
                 Statement statement = null;
                 final String query = sqlString(sql);
-                System.out.println("***\tRubyJdbcConnection.execute_query: " + query);
+                // System.out.println("***\tRubyJdbcConnection.execute_query: " + query);
                 try {
                     statement = createStatement(context, connection);
 
@@ -1212,7 +1212,7 @@ public class RubyJdbcConnection extends RubyObject {
             public IRubyObject call(final Connection connection) throws SQLException {
                 final boolean cached = !(cachedStatement == null || cachedStatement.isNil());
                 final String query = sql.convertToString().getUnicodeValue();
-                System.out.println("***\tRubyJdbcConnection.execute_prepared_query: " + query);
+                // System.out.println("***\tRubyJdbcConnection.execute_prepared_query: " + query);
                 PreparedStatement statement = null;
 
                 try {

@@ -171,7 +171,6 @@ public class MySQLRubyJdbcConnection extends RubyJdbcConnection {
 
     @Override
     protected boolean doExecute(final Statement statement, final String query) throws SQLException {
-        System.out.println("***\t\tMySQLRubyJdbcConnection.doExecute: " + statement.getClass().getName() + ", " + query);
         return statement.execute(query, Statement.RETURN_GENERATED_KEYS);
     }
 
